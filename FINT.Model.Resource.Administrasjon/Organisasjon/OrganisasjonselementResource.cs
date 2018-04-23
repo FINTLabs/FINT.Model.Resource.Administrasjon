@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace FINT.Model.Administrasjon.Organisasjon
 {
-    public class OrganisasjonselementResource : Enhet
+    public class OrganisasjonselementResource : EnhetResource
     {
         public OrganisasjonselementResource()
         {
@@ -16,7 +16,7 @@ namespace FINT.Model.Administrasjon.Organisasjon
         }
 
         [JsonProperty(PropertyName = "_links")]
-        public Dictionary<string, List<Link>> Links { get; private set; }
+        public new Dictionary<string, List<Link>> Links { get; private set; }
 
         public Periode Gyldighetsperiode { get; set; }
         public string Kortnavn { get; set; }
