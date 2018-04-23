@@ -33,7 +33,7 @@ pipeline {
       steps {
         unstash 'libs'
         archiveArtifacts '**/*.nupkg'
-        sh "dotnet nuget push FINT.Model.Resources.Administrasjon/bin/Release/FINT.Model.Resources.Administrasjon.*.nupkg -k ${BINTRAY} -s https://api.bintray.com/nuget/fint/nuget"
+        sh "dotnet nuget push FINT.Model.Resource.Administrasjon/bin/Release/FINT.Model.Resource.Administrasjon.*.nupkg -k ${BINTRAY} -s https://api.bintray.com/nuget/fint/nuget"
       }
     }
   }
