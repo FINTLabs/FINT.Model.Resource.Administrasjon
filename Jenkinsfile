@@ -12,7 +12,7 @@ pipeline {
         sh 'git clean -fdx'
         sh 'dotnet restore'
         sh 'dotnet build -c Release'
-		sh 'dotnet test'
+        sh 'dotnet test FINT.Model.Resource.Administrasjon.Tests'
         sh 'dotnet pack -c Release'
         stash includes: '**/Release/*.nupkg', name: 'libs'
       }
