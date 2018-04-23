@@ -1,15 +1,74 @@
 // Built from tag v2.7.0
 
+using System.Collections.Generic;
 using FINT.Model.Felles.Kompleksedatatyper;
+using FINT.Model.Resource;
+using Newtonsoft.Json;
 
 namespace FINT.Model.Administrasjon.Personal
 {
     public class PersonalressursResource
     {
+        public PersonalressursResource()
+        {
+            Links = new Dictionary<string, List<Link>>();
+        }
+
+        [JsonProperty(PropertyName = "_links")]
+        public Dictionary<string, List<Link>> Links { get; private set; }
+
         public Identifikator Ansattnummer { get; set; }
         public Periode Ansettelsesperiode { get; set; }
         public Identifikator Brukernavn { get; set; }
         public Kontaktinformasjon Kontaktinformasjon { get; set; }
         public Identifikator SystemId { get; set; }
+
+        private void AddLink(string key, Link link)
+        {
+            if (Links.ContainsKey(key)) return;
+
+            Links.Add(key, new List<Link>());
+            Links[key].Add(link);
+        }
+
+        public void AddPersonalressurskategori(Link link)
+        {
+            AddLink("personalressurskategori", link);
+        }
+
+        public void AddArbeidsforhold(Link link)
+        {
+            AddLink("arbeidsforhold", link);
+        }
+
+        public void AddPerson(Link link)
+        {
+            AddLink("person", link);
+        }
+
+        public void AddStedfortreder(Link link)
+        {
+            AddLink("stedfortreder", link);
+        }
+
+        public void AddFullmakt(Link link)
+        {
+            AddLink("fullmakt", link);
+        }
+
+        public void AddLeder(Link link)
+        {
+            AddLink("leder", link);
+        }
+
+        public void AddPersonalansvar(Link link)
+        {
+            AddLink("personalansvar", link);
+        }
+
+        public void AddSkoleressurs(Link link)
+        {
+            AddLink("skoleressurs", link);
+        }
     }
 }

@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         sh 'git clean -fdx'
-        sh 'dotnet restore -s https://api.bintray.com/nuget/fint/nuget'
+        sh 'dotnet restore'
         sh 'dotnet build -c Release'
         sh 'dotnet pack -c Release'
         stash includes: '**/Release/*.nupkg', name: 'libs'
@@ -33,7 +33,7 @@ pipeline {
       steps {
         unstash 'libs'
         archiveArtifacts '**/*.nupkg'
-        sh "dotnet nuget push FINT.Model.Administrasjon/bin/Release/FINT.Model.Administrasjon.*.nupkg -k ${BINTRAY} -s https://api.bintray.com/nuget/fint/nuget"
+        sh "dotnet nuget push FINT.Model.Resources.Administrasjon/bin/Release/FINT.Model.Resources.Administrasjon.*.nupkg -k ${BINTRAY} -s https://api.bintray.com/nuget/fint/nuget"
       }
     }
   }

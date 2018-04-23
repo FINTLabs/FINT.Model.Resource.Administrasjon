@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FINT.Model.Administrasjon.Kodeverk;
 using FINT.Model.Administrasjon.Kompleksedatatyper;
 using FINT.Model.Administrasjon.Personal;
 using FINT.Model.Felles.Kompleksedatatyper;
@@ -48,6 +49,7 @@ namespace FINT.Model.Resource.Administrasjon.Tests
                 Periode = new Periode {Start = new DateTime()}
             };
 
+            
             var kontostreng = new KontostrengResource();
             kontostreng.AddAnsvar(Link.with("/administrasjon/kodeverk/ansvar/systemid/2"));
             kontostreng.AddArt(Link.with("/administrasjon/kodeverk/art/systemid/1"));

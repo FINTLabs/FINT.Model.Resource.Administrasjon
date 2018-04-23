@@ -9,6 +9,11 @@ namespace FINT.Model.Administrasjon.Kompleksedatatyper
 {
     public class VariabelttilleggResource
     {
+        public VariabelttilleggResource()
+        {
+            Links = new Dictionary<string, List<Link>>();
+        }
+
         [JsonProperty(PropertyName = "_links")]
         public Dictionary<string, List<Link>> Links { get; private set; }
 

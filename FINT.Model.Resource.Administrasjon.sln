@@ -11,6 +11,7 @@ ProjectSection(SolutionItems) = preProject
 	README.md = README.md
 	version.txt = version.txt
 	.gitignore = .gitignore
+	NuGet.Config = NuGet.Config
 EndProjectSection
 EndProject
 Global
