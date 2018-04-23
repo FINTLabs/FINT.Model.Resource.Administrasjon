@@ -27,8 +27,10 @@ namespace FINT.Model.Resource.Administrasjon.Tests
                 Fasttillegg = new List<Fasttillegg>()
             };
 
-            var settings = new JsonSerializerSettings();
-            settings.ContractResolver = new LowercaseContractResolver();
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = new LowercaseContractResolver()
+            };
             var json = JsonConvert.SerializeObject(fastlonn, settings);
             Console.WriteLine(json);
 
@@ -99,10 +101,12 @@ namespace FINT.Model.Resource.Administrasjon.Tests
                 },
                 Fasttillegg = new List<FasttilleggResource>()
             };
-            fastlonn.AddArbeidsforhold(Link.with("/administrasjon/personal/arbeidsforhold/systemid/1234"));
+            fastlonn.AddArbeidsforhold(Link.with(typeof(Arbeidsforhold), "systemid", "1234"));
 
-            var settings = new JsonSerializerSettings();
-            settings.ContractResolver = new LowercaseContractResolver();
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = new LowercaseContractResolver()
+            };
             var json = JsonConvert.SerializeObject(fastlonn, settings);
 
             Console.WriteLine(json);
