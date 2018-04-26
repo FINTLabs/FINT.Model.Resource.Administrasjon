@@ -39,13 +39,11 @@ namespace FINT.Model.Resource.Administrasjon.Tests
             Assert.NotNull(fastlonn.Beskjeftigelse[0].Kontostreng);
         }
 
-
         [Fact(DisplayName = "Read Fastlonn from fastlonnresource.json with MissingMemberHandling set to Error")]
         public void Read_Fastlonn_from_fastlonnresource_json_with_MissingMemberHandling_set_to_Error()
         {
             var settings =
                 new JsonSerializerSettings {MissingMemberHandling = MissingMemberHandling.Error};
-
 
             Assert.Throws<JsonSerializationException>(() =>
                 JsonConvert.DeserializeObject<Fastlonn>(File.ReadAllText(@"./TestData/fastlonnresource.json"),
@@ -73,7 +71,6 @@ namespace FINT.Model.Resource.Administrasjon.Tests
         {
             var settings =
                 new JsonSerializerSettings {MissingMemberHandling = MissingMemberHandling.Error};
-
 
             Assert.Throws<JsonSerializationException>(() =>
                 JsonConvert.DeserializeObject<Fastlonn>(File.ReadAllText(@"./TestData/fastlonnresourcelinks.json"),

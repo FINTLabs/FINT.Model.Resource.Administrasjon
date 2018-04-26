@@ -20,7 +20,7 @@ namespace FINT.Model.Administrasjon.Kompleksedatatyper
         public long Antall { get; set; }
         public long? Belop { get; set; }
         public string Beskrivelse { get; set; }
-        public KontostrengResource KontostrengResource { get; set; }
+        public KontostrengResource Kontostreng { get; set; }
         public Periode Periode { get; set; }
 
         private void AddLink(string key, Link link)

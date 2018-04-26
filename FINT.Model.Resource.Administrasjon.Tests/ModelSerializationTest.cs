@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using FINT.Model.Administrasjon.Kodeverk;
 using FINT.Model.Administrasjon.Kompleksedatatyper;
 using FINT.Model.Administrasjon.Personal;
 using FINT.Model.Felles.Kompleksedatatyper;
@@ -39,7 +38,6 @@ namespace FINT.Model.Resource.Administrasjon.Tests
             Assert.Equal(10000, deserializeObject.Beskjeftigelse[0].Prosent);
         }
 
-
         [Fact(DisplayName = "Serialize FastlonnResource with deep links")]
         public void Serialize_FastlonnResource_with_deep_links()
         {
@@ -51,7 +49,6 @@ namespace FINT.Model.Resource.Administrasjon.Tests
                 Periode = new Periode {Start = new DateTime()}
             };
 
-            
             var kontostreng = new KontostrengResource();
             kontostreng.AddAnsvar(Link.with("/administrasjon/kodeverk/ansvar/systemid/2"));
             kontostreng.AddArt(Link.with("/administrasjon/kodeverk/art/systemid/1"));
@@ -63,7 +60,6 @@ namespace FINT.Model.Resource.Administrasjon.Tests
                 Beskrivelse = "Test",
                 Kontostreng = kontostreng
             };
-
 
             beskjeftigelse.AddLonnsart(Link.with("/administrasjon/kodeverk/lonnsart/systemid/4"));
             fastlonn.Beskjeftigelse = new List<BeskjeftigelseResource> {beskjeftigelse};
