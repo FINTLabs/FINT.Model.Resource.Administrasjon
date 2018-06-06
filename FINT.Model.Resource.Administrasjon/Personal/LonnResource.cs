@@ -5,15 +5,27 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using FINT.Model.Resource;
 
-namespace FINT.Model.Administrasjon.Kompleksedatatyper
+using FINT.Model.Administrasjon.Kompleksedatatyper;
+using FINT.Model.Felles.Kompleksedatatyper;
+
+namespace FINT.Model.Administrasjon.Personal
 {
 
-	public class KontostrengResource 
+	public abstract class LonnResource 
 	{
 
         
+		public DateTime? Anvist { get; set; }
+		public DateTime? Attestert { get; set; }
+		public string Beskrivelse { get; set; }
+		public DateTime? Kontert { get; set; }
+		public KontostrengResource Kontostreng { get; set; }
+		public Periode Opptjent { get; set; }
+		public Periode Periode { get; set; }
+		public Identifikator SystemId { get; set; }
+		
         
-        public KontostrengResource()
+        public LonnResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
@@ -28,27 +40,6 @@ namespace FINT.Model.Administrasjon.Kompleksedatatyper
                 Links.Add(key, new List<Link>());
             }
             Links[key].Add(link);
-        }
-            
-
-        public void AddAnsvar(Link link)
-        {
-            AddLink("ansvar", link);
-        }
-
-        public void AddArt(Link link)
-        {
-            AddLink("art", link);
-        }
-
-        public void AddFunksjon(Link link)
-        {
-            AddLink("funksjon", link);
-        }
-
-        public void AddProsjekt(Link link)
-        {
-            AddLink("prosjekt", link);
         }
     }
 }

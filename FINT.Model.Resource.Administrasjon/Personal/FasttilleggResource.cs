@@ -5,17 +5,19 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using FINT.Model.Resource;
 
-using FINT.Model.Administrasjon.Kodeverk;
+using FINT.Model.Administrasjon.Personal;
 
-namespace FINT.Model.Administrasjon.Kodeverk
+namespace FINT.Model.Administrasjon.Personal
 {
 
-	public class AnsvarResource : Kontodimensjon 
+	public class FasttilleggResource : LonnResource 
 	{
 
         
+		public long Belop { get; set; }
+		
         
-        public AnsvarResource()
+        public FasttilleggResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
@@ -33,24 +35,29 @@ namespace FINT.Model.Administrasjon.Kodeverk
         }
             
 
-        public void AddOverordnet(Link link)
+        public void AddLonnsart(Link link)
         {
-            AddLink("overordnet", link);
+            AddLink("lonnsart", link);
         }
 
-        public void AddUnderordnet(Link link)
+        public void AddAnviser(Link link)
         {
-            AddLink("underordnet", link);
+            AddLink("anviser", link);
         }
 
-        public void AddOrganisasjonselement(Link link)
+        public void AddKonterer(Link link)
         {
-            AddLink("organisasjonselement", link);
+            AddLink("konterer", link);
         }
 
-        public void AddFullmakt(Link link)
+        public void AddAttestant(Link link)
         {
-            AddLink("fullmakt", link);
+            AddLink("attestant", link);
+        }
+
+        public void AddArbeidsforhold(Link link)
+        {
+            AddLink("arbeidsforhold", link);
         }
     }
 }

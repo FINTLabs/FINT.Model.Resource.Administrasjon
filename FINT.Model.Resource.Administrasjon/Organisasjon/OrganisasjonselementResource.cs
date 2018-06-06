@@ -1,15 +1,27 @@
-// Built from tag v2.7.0
+// Built from tag v3.0.0-rc-1
 
+using System;
 using System.Collections.Generic;
-using FINT.Model.Felles.Basisklasser;
-using FINT.Model.Felles.Kompleksedatatyper;
-using FINT.Model.Resource;
 using Newtonsoft.Json;
+using FINT.Model.Resource;
+
+using FINT.Model.Felles.Kompleksedatatyper;
+using FINT.Model.Felles.Basisklasser;
 
 namespace FINT.Model.Administrasjon.Organisasjon
 {
-    public class OrganisasjonselementResource : EnhetResource
-    {
+
+	public class OrganisasjonselementResource : EnhetResource 
+	{
+
+        
+		public Periode Gyldighetsperiode { get; set; }
+		public string Kortnavn { get; set; }
+		public string Navn { get; set; }
+		public Identifikator OrganisasjonsId { get; set; }
+		public Identifikator OrganisasjonsKode { get; set; }
+		
+        
         public OrganisasjonselementResource()
         {
             Links = new Dictionary<string, List<Link>>();
@@ -17,20 +29,16 @@ namespace FINT.Model.Administrasjon.Organisasjon
 
         [JsonProperty(PropertyName = "_links")]
         public new Dictionary<string, List<Link>> Links { get; private set; }
-
-        public Periode Gyldighetsperiode { get; set; }
-        public string Kortnavn { get; set; }
-        public string Navn { get; set; }
-        public Identifikator OrganisasjonsId { get; set; }
-        public Identifikator OrganisasjonsKode { get; set; }
-
+        
         private void AddLink(string key, Link link)
         {
-            if (Links.ContainsKey(key)) return;
-
-            Links.Add(key, new List<Link>());
+            if (!Links.ContainsKey(key))
+            {
+                Links.Add(key, new List<Link>());
+            }
             Links[key].Add(link);
         }
+            
 
         public void AddAnsvar(Link link)
         {

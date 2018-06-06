@@ -1,6 +1,10 @@
-﻿namespace FINT.Model.Administrasjon.Kodeverk
+// Built from tag v3.0.0-rc-1
+
+using FINT.Model.Resource;
+
+namespace FINT.Model.Administrasjon.Kodeverk
 {
-    public class ArtResources
+    public class ArtResources : AbstractCollectionResources<ArtResource>
     {
     }
 }
