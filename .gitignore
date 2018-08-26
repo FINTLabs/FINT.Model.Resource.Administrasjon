@@ -246,3 +246,4 @@ ModelManifest.xml
 .idea
 .DS_Store
 *.orig
+*.ncrunchsolution

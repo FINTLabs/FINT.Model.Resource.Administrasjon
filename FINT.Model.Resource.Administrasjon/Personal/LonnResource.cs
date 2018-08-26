@@ -23,9 +23,9 @@ namespace FINT.Model.Administrasjon.Personal
 		public Periode Opptjent { get; set; }
 		public Periode Periode { get; set; }
 		public Identifikator SystemId { get; set; }
-		
-        
-        public LonnResource()
+
+
+	    protected LonnResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
