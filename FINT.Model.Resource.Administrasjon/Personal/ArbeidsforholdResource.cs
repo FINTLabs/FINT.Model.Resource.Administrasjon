@@ -10,20 +10,19 @@ using FINT.Model.Felles.Kompleksedatatyper;
 namespace FINT.Model.Administrasjon.Personal
 {
 
-	public class ArbeidsforholdResource 
-	{
+    public class ArbeidsforholdResource 
+    {
 
-        
-		public long Ansettelsesprosent { get; set; }
-		public Periode Gyldighetsperiode { get; set; }
-		public bool Hovedstilling { get; set; }
-		public long Lonnsprosent { get; set; }
-		public string Stillingsnummer { get; set; }
-		public string Stillingstittel { get; set; }
-		public Identifikator SystemId { get; set; }
-		public long Tilstedeprosent { get; set; }
-		public long Arslonn { get; set; }
-		
+    
+        public long Ansettelsesprosent { get; set; }
+        public Periode Gyldighetsperiode { get; set; }
+        public bool Hovedstilling { get; set; }
+        public long Lonnsprosent { get; set; }
+        public string Stillingsnummer { get; set; }
+        public string Stillingstittel { get; set; }
+        public Identifikator SystemId { get; set; }
+        public long Tilstedeprosent { get; set; }
+        public long Arslonn { get; set; }
         
         public ArbeidsforholdResource()
         {
@@ -32,8 +31,8 @@ namespace FINT.Model.Administrasjon.Personal
 
         [JsonProperty(PropertyName = "_links")]
         public Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -41,6 +40,7 @@ namespace FINT.Model.Administrasjon.Personal
             }
             Links[key].Add(link);
         }
+     
             
 
         public void AddAnsvar(Link link)

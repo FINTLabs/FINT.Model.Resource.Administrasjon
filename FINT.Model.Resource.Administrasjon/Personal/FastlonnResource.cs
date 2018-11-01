@@ -10,30 +10,12 @@ using FINT.Model.Administrasjon.Personal;
 namespace FINT.Model.Administrasjon.Personal
 {
 
-	public class FastlonnResource : LonnResource 
-	{
+    public class FastlonnResource : LonnResource 
+    {
 
+    
+        public long Prosent { get; set; }
         
-		public long Prosent { get; set; }
-		
-        
-        public FastlonnResource()
-        {
-            //this.Links
-            //Links = new Dictionary<string, List<Link>>();
-        }
-
-        //[JsonProperty(PropertyName = "_links")]
-        //public new Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
-        {
-            if (!Links.ContainsKey(key))
-            {
-                Links.Add(key, new List<Link>());
-            }
-            Links[key].Add(link);
-        }
             
 
         public void AddLonnsart(Link link)

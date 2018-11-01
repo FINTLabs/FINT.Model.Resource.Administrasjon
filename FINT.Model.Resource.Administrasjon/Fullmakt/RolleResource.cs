@@ -10,13 +10,12 @@ using FINT.Model.Felles.Kompleksedatatyper;
 namespace FINT.Model.Administrasjon.Fullmakt
 {
 
-	public class RolleResource 
-	{
+    public class RolleResource 
+    {
 
-        
-		public string Beskrivelse { get; set; }
-		public Identifikator Navn { get; set; }
-		
+    
+        public string Beskrivelse { get; set; }
+        public Identifikator Navn { get; set; }
         
         public RolleResource()
         {
@@ -25,8 +24,8 @@ namespace FINT.Model.Administrasjon.Fullmakt
 
         [JsonProperty(PropertyName = "_links")]
         public Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -34,6 +33,7 @@ namespace FINT.Model.Administrasjon.Fullmakt
             }
             Links[key].Add(link);
         }
+     
             
 
         public void AddFullmakt(Link link)
