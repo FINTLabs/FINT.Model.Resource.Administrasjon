@@ -11,29 +11,28 @@ using FINT.Model.Felles.Kompleksedatatyper;
 namespace FINT.Model.Administrasjon.Personal
 {
 
-	public abstract class LonnResource 
-	{
+    public abstract class LonnResource 
+    {
 
+    
+        public DateTime? Anvist { get; set; }
+        public DateTime? Attestert { get; set; }
+        public string Beskrivelse { get; set; }
+        public DateTime? Kontert { get; set; }
+        public KontostrengResource Kontostreng { get; set; }
+        public Periode Opptjent { get; set; }
+        public Periode Periode { get; set; }
+        public Identifikator SystemId { get; set; }
         
-		public DateTime? Anvist { get; set; }
-		public DateTime? Attestert { get; set; }
-		public string Beskrivelse { get; set; }
-		public DateTime? Kontert { get; set; }
-		public KontostrengResource Kontostreng { get; set; }
-		public Periode Opptjent { get; set; }
-		public Periode Periode { get; set; }
-		public Identifikator SystemId { get; set; }
-		
-        
-        public LonnResource()
+        protected LonnResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
 
         [JsonProperty(PropertyName = "_links")]
         public Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -41,5 +40,6 @@ namespace FINT.Model.Administrasjon.Personal
             }
             Links[key].Add(link);
         }
+     
     }
 }

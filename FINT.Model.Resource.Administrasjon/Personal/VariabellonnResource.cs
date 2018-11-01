@@ -10,30 +10,13 @@ using FINT.Model.Administrasjon.Personal;
 namespace FINT.Model.Administrasjon.Personal
 {
 
-	public class VariabellonnResource : LonnResource 
-	{
+    public class VariabellonnResource : LonnResource 
+    {
 
+    
+        public long Antall { get; set; }
+        public long? Belop { get; set; }
         
-		public long Antall { get; set; }
-		public long? Belop { get; set; }
-		
-        
-        public VariabellonnResource()
-        {
-            Links = new Dictionary<string, List<Link>>();
-        }
-
-        [JsonProperty(PropertyName = "_links")]
-        public new Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
-        {
-            if (!Links.ContainsKey(key))
-            {
-                Links.Add(key, new List<Link>());
-            }
-            Links[key].Add(link);
-        }
             
 
         public void AddLonnsart(Link link)

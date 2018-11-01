@@ -10,20 +10,19 @@ using FINT.Model.Administrasjon.Kodeverk;
 namespace FINT.Model.Administrasjon.Kodeverk
 {
 
-	public class ArtResource : Kontodimensjon 
-	{
+    public class ArtResource : Kontodimensjon 
+    {
 
-        
-        
+    
         public ArtResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
 
         [JsonProperty(PropertyName = "_links")]
-        public new Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+        public Dictionary<string, List<Link>> Links { get; private set; }
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -31,6 +30,7 @@ namespace FINT.Model.Administrasjon.Kodeverk
             }
             Links[key].Add(link);
         }
+     
             
 
         public void AddFullmakt(Link link)
