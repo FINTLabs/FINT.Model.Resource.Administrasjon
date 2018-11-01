@@ -19,11 +19,12 @@ namespace FINT.Model.Administrasjon.Personal
         
         public FastlonnResource()
         {
-            Links = new Dictionary<string, List<Link>>();
+            //this.Links
+            //Links = new Dictionary<string, List<Link>>();
         }
 
-        [JsonProperty(PropertyName = "_links")]
-        public new Dictionary<string, List<Link>> Links { get; private set; }
+        //[JsonProperty(PropertyName = "_links")]
+        //public new Dictionary<string, List<Link>> Links { get; private set; }
         
         private void AddLink(string key, Link link)
         {
