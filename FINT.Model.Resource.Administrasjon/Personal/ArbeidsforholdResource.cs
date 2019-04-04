@@ -1,4 +1,4 @@
-// Built from tag v3.1.0
+// Built from tag v3.2.0-rc-1
 
 using System;
 using System.Collections.Generic;
@@ -10,20 +10,19 @@ using FINT.Model.Felles.Kompleksedatatyper;
 namespace FINT.Model.Administrasjon.Personal
 {
 
-	public class ArbeidsforholdResource 
-	{
+    public class ArbeidsforholdResource 
+    {
 
-        
-		public long Ansettelsesprosent { get; set; }
-		public Periode Gyldighetsperiode { get; set; }
-		public bool Hovedstilling { get; set; }
-		public long Lonnsprosent { get; set; }
-		public string Stillingsnummer { get; set; }
-		public string Stillingstittel { get; set; }
-		public Identifikator SystemId { get; set; }
-		public long Tilstedeprosent { get; set; }
-		public long Arslonn { get; set; }
-		
+    
+        public long Ansettelsesprosent { get; set; }
+        public Periode Gyldighetsperiode { get; set; }
+        public bool Hovedstilling { get; set; }
+        public long Lonnsprosent { get; set; }
+        public string Stillingsnummer { get; set; }
+        public string Stillingstittel { get; set; }
+        public Identifikator SystemId { get; set; }
+        public long Tilstedeprosent { get; set; }
+        public long Arslonn { get; set; }
         
         public ArbeidsforholdResource()
         {
@@ -32,8 +31,8 @@ namespace FINT.Model.Administrasjon.Personal
 
         [JsonProperty(PropertyName = "_links")]
         public Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -41,6 +40,7 @@ namespace FINT.Model.Administrasjon.Personal
             }
             Links[key].Add(link);
         }
+     
             
 
         public void AddAnsvar(Link link)
@@ -51,6 +51,11 @@ namespace FINT.Model.Administrasjon.Personal
         public void AddArbeidsforholdstype(Link link)
         {
             AddLink("arbeidsforholdstype", link);
+        }
+
+        public void AddArt(Link link)
+        {
+            AddLink("art", link);
         }
 
         public void AddFunksjon(Link link)
@@ -78,6 +83,16 @@ namespace FINT.Model.Administrasjon.Personal
             AddLink("personalleder", link);
         }
 
+        public void AddFastlonn(Link link)
+        {
+            AddLink("fastlonn", link);
+        }
+
+        public void AddFasttillegg(Link link)
+        {
+            AddLink("fasttillegg", link);
+        }
+
         public void AddFravar(Link link)
         {
             AddLink("fravar", link);
@@ -86,6 +101,11 @@ namespace FINT.Model.Administrasjon.Personal
         public void AddLonn(Link link)
         {
             AddLink("lonn", link);
+        }
+
+        public void AddVariabellonn(Link link)
+        {
+            AddLink("variabellonn", link);
         }
 
         public void AddPersonalressurs(Link link)

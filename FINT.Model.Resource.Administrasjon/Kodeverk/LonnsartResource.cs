@@ -10,11 +10,13 @@ using FINT.Model.Felles.Basisklasser;
 namespace FINT.Model.Administrasjon.Kodeverk
 {
 
-    public class StillingskodeResource : Begrep 
+    public class LonnsartResource : Begrep 
     {
 
     
-        public StillingskodeResource()
+        public string Kategori { get; set; }
+        
+        public LonnsartResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
@@ -33,9 +35,9 @@ namespace FINT.Model.Administrasjon.Kodeverk
      
             
 
-        public void AddForelder(Link link)
+        public void AddArt(Link link)
         {
-            AddLink("forelder", link);
+            AddLink("art", link);
         }
     }
 }

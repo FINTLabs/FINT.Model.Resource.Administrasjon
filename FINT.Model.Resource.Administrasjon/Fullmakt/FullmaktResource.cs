@@ -1,4 +1,4 @@
-// Built from tag v3.1.0
+// Built from tag v3.2.0-rc-1
 
 using System;
 using System.Collections.Generic;
@@ -10,13 +10,12 @@ using FINT.Model.Felles.Kompleksedatatyper;
 namespace FINT.Model.Administrasjon.Fullmakt
 {
 
-	public class FullmaktResource 
-	{
+    public class FullmaktResource 
+    {
 
-        
-		public Periode Gyldighetsperiode { get; set; }
-		public Identifikator SystemId { get; set; }
-		
+    
+        public Periode Gyldighetsperiode { get; set; }
+        public Identifikator SystemId { get; set; }
         
         public FullmaktResource()
         {
@@ -25,8 +24,8 @@ namespace FINT.Model.Administrasjon.Fullmakt
 
         [JsonProperty(PropertyName = "_links")]
         public Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -34,6 +33,7 @@ namespace FINT.Model.Administrasjon.Fullmakt
             }
             Links[key].Add(link);
         }
+     
             
 
         public void AddMyndighet(Link link)

@@ -1,4 +1,4 @@
-// Built from tag v3.1.0
+// Built from tag v3.2.0-rc-1
 
 using System;
 using System.Collections.Generic;
@@ -10,20 +10,19 @@ using FINT.Model.Felles.Basisklasser;
 namespace FINT.Model.Administrasjon.Kodeverk
 {
 
-	public class ArbeidsforholdstypeResource : Begrep 
-	{
+    public class ArbeidsforholdstypeResource : Begrep 
+    {
 
-        
-        
+    
         public ArbeidsforholdstypeResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
 
         [JsonProperty(PropertyName = "_links")]
-        public new Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+        public Dictionary<string, List<Link>> Links { get; private set; }
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -31,6 +30,7 @@ namespace FINT.Model.Administrasjon.Kodeverk
             }
             Links[key].Add(link);
         }
+     
             
 
         public void AddForelder(Link link)

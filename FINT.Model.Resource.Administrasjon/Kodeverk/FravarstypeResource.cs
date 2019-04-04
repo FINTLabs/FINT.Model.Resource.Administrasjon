@@ -10,11 +10,13 @@ using FINT.Model.Felles.Basisklasser;
 namespace FINT.Model.Administrasjon.Kodeverk
 {
 
-    public class StillingskodeResource : Begrep 
+    public class FravarstypeResource : Begrep 
     {
 
     
-        public StillingskodeResource()
+        public bool? Overfores { get; set; }
+        
+        public FravarstypeResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
@@ -33,9 +35,9 @@ namespace FINT.Model.Administrasjon.Kodeverk
      
             
 
-        public void AddForelder(Link link)
+        public void AddLonnsart(Link link)
         {
-            AddLink("forelder", link);
+            AddLink("lonnsart", link);
         }
     }
 }

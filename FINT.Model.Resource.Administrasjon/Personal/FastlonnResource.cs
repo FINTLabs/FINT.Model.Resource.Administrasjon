@@ -1,4 +1,4 @@
-// Built from tag v3.1.0
+// Built from tag v3.2.0-rc-1
 
 using System;
 using System.Collections.Generic;
@@ -10,34 +10,22 @@ using FINT.Model.Administrasjon.Personal;
 namespace FINT.Model.Administrasjon.Personal
 {
 
-	public class FastlonnResource : LonnResource 
-	{
+    public class FastlonnResource : LonnResource 
+    {
 
+    
+        public long Prosent { get; set; }
         
-		public long Prosent { get; set; }
-		
-        
-        public FastlonnResource()
-        {
-            Links = new Dictionary<string, List<Link>>();
-        }
-
-        [JsonProperty(PropertyName = "_links")]
-        public new Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
-        {
-            if (!Links.ContainsKey(key))
-            {
-                Links.Add(key, new List<Link>());
-            }
-            Links[key].Add(link);
-        }
             
 
         public void AddLonnsart(Link link)
         {
             AddLink("lonnsart", link);
+        }
+
+        public void AddArbeidsforhold(Link link)
+        {
+            AddLink("arbeidsforhold", link);
         }
 
         public void AddAnviser(Link link)
@@ -53,11 +41,6 @@ namespace FINT.Model.Administrasjon.Personal
         public void AddAttestant(Link link)
         {
             AddLink("attestant", link);
-        }
-
-        public void AddArbeidsforhold(Link link)
-        {
-            AddLink("arbeidsforhold", link);
         }
     }
 }

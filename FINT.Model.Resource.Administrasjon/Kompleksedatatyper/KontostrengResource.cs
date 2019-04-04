@@ -1,4 +1,4 @@
-// Built from tag v3.1.0
+// Built from tag v3.2.0-rc-1
 
 using System;
 using System.Collections.Generic;
@@ -8,11 +8,10 @@ using FINT.Model.Resource;
 namespace FINT.Model.Administrasjon.Kompleksedatatyper
 {
 
-	public class KontostrengResource 
-	{
+    public class KontostrengResource 
+    {
 
-        
-        
+    
         public KontostrengResource()
         {
             Links = new Dictionary<string, List<Link>>();
@@ -20,8 +19,8 @@ namespace FINT.Model.Administrasjon.Kompleksedatatyper
 
         [JsonProperty(PropertyName = "_links")]
         public Dictionary<string, List<Link>> Links { get; private set; }
-        
-        private void AddLink(string key, Link link)
+
+        protected void AddLink(string key, Link link)
         {
             if (!Links.ContainsKey(key))
             {
@@ -29,6 +28,7 @@ namespace FINT.Model.Administrasjon.Kompleksedatatyper
             }
             Links[key].Add(link);
         }
+     
             
 
         public void AddAnsvar(Link link)
