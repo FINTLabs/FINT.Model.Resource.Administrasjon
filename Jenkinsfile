@@ -14,9 +14,14 @@ pipeline {
         branch 'master'
       }
       steps {
-        retry(3) {
-          sh 'git clean -fdx'
-          sh 'dotnet restore'
+        timeout(10) {
+            waitUntil {
+                script {
+                    sh 'git clean -fdx'
+                    def r = sh returnStatus: true, script: 'dotnet restore -s https://api.bintray.com/nuget/fint/nuget'
+                    return r == 0
+                }
+            }
         }
         sh 'dotnet build -c Release'
         sh 'dotnet test FINT.Model.Resource.Administrasjon.Tests'
