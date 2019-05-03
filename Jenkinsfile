@@ -18,7 +18,7 @@ pipeline {
             waitUntil {
                 script {
                     sh 'git clean -fdx'
-                    def r = sh returnStatus: true, script: 'dotnet restore -s https://api.bintray.com/nuget/fint/nuget'
+                    def r = sh returnStatus: true, script: 'dotnet restore'
                     return r == 0
                 }
             }
