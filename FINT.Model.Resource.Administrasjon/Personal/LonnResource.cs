@@ -1,12 +1,12 @@
-// Built from tag v3.2.0
+// Built from tag v3.3.0-rc-1
 
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using FINT.Model.Resource;
 
-using FINT.Model.Administrasjon.Kompleksedatatyper;
 using FINT.Model.Felles.Kompleksedatatyper;
+using FINT.Model.Administrasjon.Kompleksedatatyper;
 
 namespace FINT.Model.Administrasjon.Personal
 {
@@ -18,6 +18,7 @@ namespace FINT.Model.Administrasjon.Personal
         public DateTime? Anvist { get; set; }
         public DateTime? Attestert { get; set; }
         public string Beskrivelse { get; set; }
+        public Identifikator KildesystemId { get; set; }
         public DateTime? Kontert { get; set; }
         public KontostrengResource Kontostreng { get; set; }
         public Periode Opptjent { get; set; }
