@@ -5,18 +5,16 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using FINT.Model.Resource;
 
-using FINT.Model.Felles.Basisklasser;
+using FINT.Model.Administrasjon.Kodeverk;
 
 namespace FINT.Model.Administrasjon.Kodeverk
 {
 
-    public class LonnsartResource : Begrep 
+    public class ObjektResource : Kontodimensjon 
     {
 
     
-        public string Kategori { get; set; }
-        
-        public LonnsartResource()
+        public ObjektResource()
         {
             Links = new Dictionary<string, List<Link>>();
         }
@@ -35,9 +33,9 @@ namespace FINT.Model.Administrasjon.Kodeverk
      
             
 
-        public void AddArt(Link link)
+        public void AddFullmakt(Link link)
         {
-            AddLink("art", link);
+            AddLink("fullmakt", link);
         }
     }
 }
